@@ -15,13 +15,30 @@
           return (
             <div>
               <h1>Hello World!</h1>
+              <div id="text"></div>
             </div>
+
           );
+        }
+      }
+
+      class Text extends React.Component {
+        render() {
+          return (
+            <div>
+              <p>
+                I have some text here that will live under the Hello World heading above. Im nesting it in another component just to see if it works. Not sure thats best practices but might as well try it out.
+              </p>
+            </div>
+          )
         }
       }
 
       ReactDOM.render(
         <Greeting />, document.getElementById('app')
+      );
+      ReactDOM.render(
+        <Text />, document.getElementById('text')
       );
     </script>
   </body>
