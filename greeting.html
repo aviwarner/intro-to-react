@@ -11,17 +11,40 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.34/browser.min.js"></script>
     <script type="text/babel">
       class Greeting extends React.Component {
+        constructor(props){
+          super(props);
+          this.state = {
+            name: "Avi",
+            fruit: "mango",
+          }
+        }
+
         render() {
           return (
             <div>
-              <h1>Hello {this.props.name}!</h1>
+              <h1>Hello {this.state.name}! <br/>
+                <small>Have a {this.state.fruit}</small></h1>
+              <div id="text"></div>
             </div>
           );
         }
       }
-
+      class Text extends React.Component {
+        render() {
+          return (
+            <div>
+              <p>
+                I bet you would also like a {this.props.fruit}.
+              </p>
+            </div>
+          )
+        }
+      }
       ReactDOM.render(
-        <Greeting name="Avi"/>, document.getElementById('app')
+        <Greeting />, document.getElementById('app')
+      );
+      ReactDOM.render(
+        <Text fruit="banana"/>, document.getElementById('text')
       );
     </script>
   </body>
